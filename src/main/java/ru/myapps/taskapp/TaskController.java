@@ -1,8 +1,11 @@
 package ru.myapps.taskapp;
 
 import org.springframework.web.bind.annotation.*;
+import ru.myapps.taskapp.models.Performer;
+import ru.myapps.taskapp.models.Task;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/tasks")
@@ -36,5 +39,15 @@ public class TaskController {
     @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
+    }
+
+    @PutMapping("/{taskId}/performers")
+    public void assignPerformersToTask(@PathVariable Long taskId, @RequestBody Set<Performer> performers) {
+        taskService.assignPerformersToTask(taskId, performers);
+    }
+
+    @DeleteMapping("/{taskId}/performers")
+    public void removePerformersFromTask(@PathVariable Long taskId, @RequestBody Set<Performer> performers) {
+        taskService.removePerformersFromTask(taskId, performers);
     }
 }
