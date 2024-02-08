@@ -2,6 +2,7 @@ package ru.myapps.taskapp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.myapps.taskapp.models.Performer;
 
 import java.util.List;
 

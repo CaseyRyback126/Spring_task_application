@@ -1,7 +1,8 @@
-package ru.myapps.taskapp;
+package ru.myapps.taskapp.models;
 
 import jakarta.persistence.*;
 import org.springframework.data.annotation.Id;
+import ru.myapps.taskapp.Status;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;

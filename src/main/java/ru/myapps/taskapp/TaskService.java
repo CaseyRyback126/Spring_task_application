@@ -2,6 +2,8 @@ package ru.myapps.taskapp;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.myapps.taskapp.models.Performer;
+import ru.myapps.taskapp.models.Task;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,6 +1,8 @@
 package ru.myapps.taskapp;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import ru.myapps.taskapp.models.Performer;
+import ru.myapps.taskapp.models.Task;
 
 import java.util.List;
 import java.util.Optional;
