@@ -1,4 +1,4 @@
-package ru.myapps.taskapp;
+package ru.myapps.taskapp.configs;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
