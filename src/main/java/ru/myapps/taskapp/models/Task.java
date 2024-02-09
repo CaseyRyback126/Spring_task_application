@@ -1,11 +1,15 @@
-package ru.myapps.taskapp;
+package ru.myapps.taskapp.models;
 
 import jakarta.persistence.*;
 import org.springframework.data.annotation.Id;
+import ru.myapps.taskapp.Status;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@Table(name = "tasks")
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +21,21 @@ public class Task {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Status status;
-
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
     private LocalDateTime createdAt;
+
+    @OneToMany
+    @JoinColumn(name = "performer_id")
+    private Performer performer;
+
+    @ManyToMany
+    @JoinTable(
+            name = "task_performer",
+            joinColumns = @JoinColumn(name = "task_id"),
+            inverseJoinColumns = @JoinColumn(name = "performer_id")
+    )
+    private Set<Performer> performers = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -54,4 +70,11 @@ public class Task {
         this.createdAt = LocalDateTime.now();
     }
 
+    public Performer getPerformer() {
+        return performer;
+    }
+
+    public Set<Performer> getPerformers() {
+        return performers;
+    }
 }
