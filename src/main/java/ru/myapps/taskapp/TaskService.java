@@ -3,6 +3,7 @@ package ru.myapps.taskapp;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.myapps.taskapp.models.Performer;
+import ru.myapps.taskapp.models.Status;
 import ru.myapps.taskapp.models.Task;
 
 import java.util.List;
@@ -41,8 +42,8 @@ public class TaskService {
 
     @Transactional
     public Task createTask(Task task) {
-        if (task.getPerformers() != null) {
-            taskRepository.findPerformers(task.getPerformers()).ifPresent(existingTask -> {
+        if (task.findPerformers() != null) {
+            taskRepository.findPerformers(task.findPerformers()).ifPresent(existingTask -> {
                 throw new RuntimeException("The performers already has a task");
             });
         }
@@ -71,7 +72,7 @@ public class TaskService {
         Optional<Task> optionalTask = taskRepository.findById(taskId);
         if (optionalTask.isPresent()) {
             Task task = optionalTask.get();
-            task.getPerformers().addAll(performers);
+            task.findPerformers().addAll(performers);
             taskRepository.save(task);
         }
     }
@@ -80,7 +81,7 @@ public class TaskService {
         Optional<Task> optionalTask = taskRepository.findById(taskId);
         if (optionalTask.isPresent()) {
             Task task = optionalTask.get();
-            task.getPerformers().removeAll(performers);
+            task.findPerformers().removeAll(performers);
             taskRepository.save(task);
         }
     }

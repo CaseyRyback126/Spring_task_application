@@ -1,4 +1,4 @@
-package ru.myapps.taskapp;
+package ru.myapps.taskapp.configs;
 
 import jakarta.servlet.FilterRegistration;
 import jakarta.servlet.ServletContext;

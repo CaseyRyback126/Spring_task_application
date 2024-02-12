@@ -1,7 +1,7 @@
 package ru.myapps.taskapp.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import ru.myapps.taskapp.Status;
+import ru.myapps.taskapp.models.Status;
 import ru.myapps.taskapp.TaskService;
 import ru.myapps.taskapp.models.Performer;
 import ru.myapps.taskapp.models.Task;

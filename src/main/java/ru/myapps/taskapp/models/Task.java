@@ -1,8 +1,6 @@
 package ru.myapps.taskapp.models;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
-import ru.myapps.taskapp.Status;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -25,7 +23,7 @@ public class Task {
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "performer_id")
     private Performer performer;
 
@@ -74,7 +72,7 @@ public class Task {
         return performer;
     }
 
-    public Set<Performer> getPerformers() {
+    public Set<Performer> findPerformers() {
         return performers;
     }
 }

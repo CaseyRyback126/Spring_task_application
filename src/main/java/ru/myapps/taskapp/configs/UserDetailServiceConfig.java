@@ -1,4 +1,4 @@
-package ru.myapps.taskapp;
+package ru.myapps.taskapp.configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -19,15 +19,18 @@ public class PerformerService {
         return performerRepository.findAll();
     }
 
+    @TrackPerformerAction
     public Performer getPerformerById(Long id) {
         return performerRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Performer not found"));
     }
 
+    @TrackPerformerAction
     public Performer createPerformer(Performer performer) {
         return performerRepository.save(performer);
     }
 
+    @TrackPerformerAction
     public Performer updatePerformer(Performer performer) {
         return performerRepository.save(performer);
     }
