@@ -1,7 +1,7 @@
 package ru.myapps.taskapp;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
+
 
 import java.time.LocalDateTime;
 
