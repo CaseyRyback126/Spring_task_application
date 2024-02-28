@@ -1,7 +1,8 @@
-package ru.myapps.taskapp;
+package ru.myapps.taskapp.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.myapps.taskapp.repository.TaskRepository;
 import ru.myapps.taskapp.models.Performer;
 import ru.myapps.taskapp.models.Status;
 import ru.myapps.taskapp.models.Task;
@@ -22,6 +23,8 @@ public class TaskService {
     public Task addTask(Task task) {
         return taskRepository.save(task);
     }
+
+    public static boolean isCompleted(Status status){return true;}
 
     @Transactional(readOnly = true)
     public List<Task> getAllTasks() {
@@ -52,7 +55,7 @@ public class TaskService {
 
     @Transactional
     public Task updateTask(Task task) {
-        return taskRepository.findById(task.getId()).map(existingTask -> {
+        return taskRepository.findById(task.getTaskId()).map(existingTask -> {
             if (task.getPerformer() != null && task.getPerformer().getId() != null
                     && !task.getPerformer().getId().equals(existingTask.getPerformer().getId())) {
                 taskRepository.findByPerformerId(task.getPerformer().getId()).ifPresent(t -> {

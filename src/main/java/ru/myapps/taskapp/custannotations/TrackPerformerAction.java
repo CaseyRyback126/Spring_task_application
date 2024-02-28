@@ -1,4 +1,4 @@
-package ru.myapps.taskapp;
+package ru.myapps.taskapp.custannotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

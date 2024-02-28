@@ -1,7 +1,9 @@
-package ru.myapps.taskapp;
+package ru.myapps.taskapp.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.myapps.taskapp.repository.PerformerRepository;
+import ru.myapps.taskapp.custannotations.TrackPerformerAction;
 import ru.myapps.taskapp.models.Performer;
 
 import java.util.List;

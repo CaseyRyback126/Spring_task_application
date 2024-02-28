@@ -2,7 +2,7 @@ package ru.myapps.taskapp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.myapps.taskapp.PerformerService;
+import ru.myapps.taskapp.service.PerformerService;
 import ru.myapps.taskapp.models.Performer;
 
 import java.util.List;
