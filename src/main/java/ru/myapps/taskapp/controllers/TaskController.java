@@ -1,15 +1,21 @@
-package ru.myapps.taskapp;
+package ru.myapps.taskapp.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import ru.myapps.taskapp.models.Status;
+import ru.myapps.taskapp.service.TaskService;
+import ru.myapps.taskapp.models.Performer;
+import ru.myapps.taskapp.models.Task;
+import ru.myapps.taskapp.service.TaskServiceFacade;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/tasks")
 public class TaskController {
-    private final TaskService taskService;
+    private final TaskServiceFacade taskService;
 
-    public TaskController(TaskService taskService) {
+    public TaskController(TaskServiceFacade taskService) {
         this.taskService = taskService;
     }
 
@@ -36,5 +42,15 @@ public class TaskController {
     @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
+    }
+
+    @PutMapping("/{taskId}/performers")
+    public void assignPerformersToTask(@PathVariable Long taskId, @RequestBody Set<Performer> performers) {
+        taskService.assignPerformersToTask(taskId, performers);
+    }
+
+    @DeleteMapping("/{taskId}/performers")
+    public void removePerformersFromTask(@PathVariable Long taskId, @RequestBody Set<Performer> performers) {
+        taskService.removePerformersFromTask(taskId, performers);
     }
 }

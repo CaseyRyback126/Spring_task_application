@@ -1,4 +1,4 @@
-package ru.myapps.taskapp;
+package ru.myapps.taskapp.models;
 
 public enum Status {
     NOT_STARTED,
